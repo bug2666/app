@@ -49,14 +49,17 @@ Widget block22(){
           ),
           Row(
             children: [
-              Text(desc,style: TextStyle(fontSize: 15), softWrap: true,overflow: TextOverflow.ellipsis, ),
+              Flexible(
+                child: Text(desc,style: TextStyle(fontSize: 15), softWrap: true,overflow: TextOverflow.ellipsis,),
+              ),
             ],
           )
         ],
       ),
     ),
-  ); // là 1 dấu x
+  );
 }
+
 
 Widget block23(){
   return Padding(
@@ -131,9 +134,11 @@ Widget block33(){
 // lá chỉ hiển thị nội dunng còn nó nằm ở đâu thì cành nó quyết định
 Widget block4(){
   var data = "Tết Trung Thu, còn được gọi là Tết Trông Trăng hay Tết Thiếu Nhi, là một trong những lễ hội truyền thống quan trọng và vui tươi ở Việt Nam. Lễ hội này thường diễn ra vào rằm tháng Tám âm lịch – khi trăng tròn và sáng nhất trong năm. Đây là dịp đặc biệt để sum vầy gia đình, thể hiện tình yêu thương và dành sự quan tâm cho trẻ em.";
-  return Padding( // chuột trái chọn refactor -> extract widget
-    padding: const EdgeInsets.all(20.0),
-    child: Text(data),
+  return Center(
+    child: Padding( // chuột trái chọn refactor -> extract widget
+      padding: const EdgeInsets.all(20.0),
+      child: Text(data),
+    ),
   ); // là 1 dấu x
 }
 
