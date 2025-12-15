@@ -65,56 +65,81 @@ class _MyProductState extends State<MyProduct> {
   }
 
   Widget myListViews(List<Product> ls) {
-    return GridView.count(
-      crossAxisCount: 2,
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      children: ls.map((p) => myItem(p)).toList(),
+    return GridView.builder(
+      padding: const EdgeInsets.all(12),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
+        childAspectRatio: 0.62, // giữ thẻ cân đối, tránh nhảy chiều cao
+      ),
+      itemCount: ls.length,
+      itemBuilder: (context, index) => myItem(ls[index]),
     );
   }
 
   Widget myItem(Product p) {
-    return InkWell(
-      customBorder: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      onTap: () => handledTap(p),
-      child: Container(
-        margin: const EdgeInsets.all(5),
-        padding: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          border: Border.all(width: 1, color: Colors.grey),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          children: [
-            Image.network(p.image, height: 75),
-            const SizedBox(height: 10),
-            Text(
-              p.title,
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              p.description,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 9),
-            ),
-            const SizedBox(height: 10),
-            Text("${p.price} \$", style: const TextStyle(color: Colors.red)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const Icon(Icons.star, color: Colors.amber, size: 18),
-                const SizedBox(width: 6),
-                Text("${p.rating.rate} (${p.rating.count})"),
-              ],
-            ),
-          ],
+    final priceText =
+        p.price is num ? (p.price as num).toStringAsFixed(2) : p.price.toString();
+
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 1.5,
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () => handledTap(p),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: AspectRatio(
+                  aspectRatio: 1,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      p.image,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                p.title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                p.description,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontSize: 11, color: Colors.black87),
+              ),
+              const Spacer(),
+              Text(
+                "$priceText \$",
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Row(
+                children: [
+                  const Icon(Icons.star, color: Colors.amber, size: 16),
+                  const SizedBox(width: 4),
+                  Text("${p.rating.rate} (${p.rating.count})",
+                      style: const TextStyle(fontSize: 12)),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
