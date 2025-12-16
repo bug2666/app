@@ -11,17 +11,18 @@ class ProfileScreen extends StatelessWidget {
     final fullName = '${infor.firstName} ${infor.lastName}';
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Text(fullName),
         centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => const Login()),
-                (route) => false, // xóa stack, quay về login
-              );
+              Navigator.pop(context);
             }, 
             tooltip: 'Đăng xuất',
           ),

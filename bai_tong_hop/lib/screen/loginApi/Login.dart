@@ -1,4 +1,3 @@
-
 import 'package:bai_tong_hop/screen/loginApi/api.dart';
 import 'package:bai_tong_hop/screen/loginApi/profileInfor.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +24,8 @@ class _LoginState extends State<Login> {
   }
 
   Future<void> submit() async {
-    final valid  = formKey.currentState!.validate(); // kiểm tra form hiện tại (chắc chắn không null) có hợp lệ không
+    final valid = formKey.currentState!
+        .validate(); // kiểm tra form hiện tại (chắc chắn không null) có hợp lệ không
     if (!valid) return; // không hợp lệ
     final api = Api(); //Muốn gọi instance method thì phải tạo đối tượng trước.
     //Class là khuôn mẫu, instance là sản phẩm được tạo từ khuôn đó.
@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
       userFrom.text.trim(),
       passFrom.text,
     );
-    if (auth == null){
+    if (auth == null) {
       setState(() {
         isLoading = false;
         errorText = 'Sai tài khoản hoặc mật khẩu';
@@ -48,58 +48,132 @@ class _LoginState extends State<Login> {
     }
     final info = await api.getInfor(auth.accessToken);
     if (!mounted) return;
-    if(info == null){
+    if (info == null) {
       setState(() {
         isLoading = false;
         errorText = 'không lấy được thông tin người dùng';
       });
       return;
     }
-    Navigator.pushReplacement( // push thì có thể quay lại vì nó để vào ngăng sếp còn pushReplacement thì thay thế màn hình hiện tại bằng màn hình mới , không thể quay lại màn hình trước nữa
+    Navigator.pushReplacement(
+      // push thì có thể quay lại vì nó để vào ngăng sếp còn pushReplacement thì thay thế màn hình hiện tại bằng màn hình mới , không thể quay lại màn hình trước nữa
       context, // màn hình gốc
-      MaterialPageRoute(builder: (context){return ProfileScreen(infor: info);})
+      MaterialPageRoute(
+        builder: (context) {
+          return ProfileScreen(infor: info);
+        },
+      ),
       // builder: (context): yêu cầu tạo màn hình mới
       // context là BuildContext của route mới, không phải context của màn hình cũ.
       // truyền dữ liệu giữa 2 màn hình thông qua biến infor và nó được khai báo vào khởi tạo ở bên profileInfor
     );
-
-
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Form(
-          key: formKey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextFormField(
-                controller: userFrom,
-                decoration: const InputDecoration(labelText: 'Username'),
-                validator: (v) => (v == null || v.isEmpty) ? 'Nhập username' : null,
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(title: const Text('Login'), centerTitle: true),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Card(
+            elevation: 6,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.lock_outline,
+                      size: 64,
+                      color: Colors.indigo,
+                    ),
+                    const SizedBox(height: 16),
+                    const Text(
+                      'Đăng nhập',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+
+                    /// Username
+                    TextFormField(
+                      controller: userFrom,
+                      decoration: InputDecoration(
+                        labelText: 'Username',
+                        prefixIcon: const Icon(Icons.person),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      validator: (v) =>
+                          (v == null || v.isEmpty) ? 'Nhập username' : null,
+                    ),
+                    const SizedBox(height: 16),
+
+                    /// Password
+                    TextFormField(
+                      controller: passFrom,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        prefixIcon: const Icon(Icons.lock),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      validator: (v) =>
+                          (v == null || v.isEmpty) ? 'Nhập password' : null,
+                    ),
+                    const SizedBox(height: 16),
+
+                    /// Error
+                    if (errorText != null)
+                      Text(
+                        errorText!,
+                        style: const TextStyle(color: Colors.red),
+                      ),
+                    const SizedBox(height: 16),
+
+                    /// Button
+                    SizedBox(
+                      width: double.infinity,
+                      height: 48,
+                      child: ElevatedButton(
+                        onPressed: isLoading ? null : submit,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.indigo,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        child: isLoading
+                            ? const SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: Colors.white,
+                                ),
+                              )
+                            : const Text(
+                                'LOGIN',
+                                style: TextStyle(fontSize: 16, color: Colors.black),
+                              ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              TextFormField(
-                controller: passFrom,
-                decoration: const InputDecoration(labelText: 'Password'),
-                obscureText: true,
-                validator: (v) => (v == null || v.isEmpty) ? 'Nhập password' : null,
-              ),
-              const SizedBox(height: 12),
-              if (errorText != null) Text(errorText!, style: const TextStyle(color: Colors.red)),
-              const SizedBox(height: 12),
-              ElevatedButton(
-                onPressed: isLoading ? null : submit,
-                child: isLoading
-                    ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
-                    : const Text('Login'),
-              ),
-            ],
+            ),
           ),
         ),
       ),

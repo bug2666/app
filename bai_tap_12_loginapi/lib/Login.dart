@@ -1,6 +1,7 @@
 import 'package:bai_tap_12_loginapi/api.dart';
 import 'package:bai_tap_12_loginapi/profileInfor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -54,12 +55,13 @@ class _LoginState extends State<Login> {
       });
       return;
     }
-    Navigator.pushReplacement( // push thì có thể quay lại vì nó để vào ngăng sếp còn pushReplacement thì thay thế màn hình hiện tại bằng màn hình mới , không thể quay lại màn hình trước nữa
-      context, // màn hình gốc
-      MaterialPageRoute(builder: (context){return ProfileScreen(infor: info);})
-      // builder: (context): yêu cầu tạo màn hình mới
-      // context là BuildContext của route mới, không phải context của màn hình cũ.
-      // truyền dữ liệu giữa 2 màn hình thông qua biến infor và nó được khai báo vào khởi tạo ở bên profileInfor
+    setState(() {
+      isLoading = false;
+      errorText = null;
+    });
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context){return ProfileScreen(infor: info);}),
     );
 
 
@@ -68,6 +70,18 @@ class _LoginState extends State<Login> {
    @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          onPressed: () async {
+            final popped = await Navigator.of(context).maybePop();
+            if (!popped) {
+              SystemNavigator.pop();
+            }
+          },
+        ),
+        title: const Text('Login'),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Form(

@@ -82,7 +82,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_1'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_1',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -116,7 +118,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_2'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_2',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -151,7 +155,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_3'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_3',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -185,7 +191,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_4'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_4',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -219,7 +227,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_5'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_5',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -253,7 +263,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_6'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_6',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -287,7 +299,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_7'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_7',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -321,7 +335,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_8'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_8',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -355,7 +371,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_9'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_9',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -389,7 +407,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_10_routing'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_10_routing',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -423,7 +443,9 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_11_productapt'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_11_productapt',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
@@ -457,11 +479,50 @@ class _HomeState extends State<Home> {
                   trailing: IconButton(
                     icon: const Icon(Icons.code),
                     tooltip: 'Xem mã nguồn từ GitHub',
-                    onPressed: () => openGithub('https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_12_loginapi'),
+                    onPressed: () => openGithub(
+                      'https://github.com/bug2666/app/tree/d9f504481aa962575e5d3dd5541e3cf90cea632c/bai_tap_12_loginapi',
+                    ),
                   ),
                   onTap: () {
                     Navigator.pop(context);
                     _LoginApi();
+                  },
+                ),
+              ),
+              // mã nguồn toàn bộ dự án
+              Container(
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  border: const Border(
+                    left: BorderSide(color: Colors.green, width: 4),
+                  ),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 6,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: ListTile(
+                  leading: const Icon(Icons.folder_open, color: Colors.green),
+                  title: const Text(
+                    'Mã nguồn toàn bộ dự án',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                  ),
+                  subtitle: const Text(
+                    'Xem toàn bộ source code trên GitHub',
+                    style: TextStyle(fontSize: 11),
+                  ),
+                  trailing: const Icon(Icons.open_in_new),
+                  onTap: () {
+                    Navigator.pop(context);
+                    openGithub('https://github.com/bug2666/app/tree/main/bai_tong_hop');
                   },
                 ),
               ),

@@ -17,12 +17,11 @@ class ProfileScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const Login()),
-                (route) => false, // xóa stack, quay về login
               );
-            }, 
+            },
             tooltip: 'Đăng xuất',
           ),
         ],
